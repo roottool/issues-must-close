@@ -9,6 +9,18 @@ export default function Home() {
       </Head>
 
       <main>
+        <picture>
+          <source
+            srcSet={require('@public/images/logo.png?webp')}
+            type="image/webp"
+          />
+          <source
+            srcSet={require('@public/images/logo.png')}
+            type="image/png"
+          />
+          <img src={require('@public/images/logo.png')} alt="Logo" />
+        </picture>
+
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
