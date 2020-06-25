@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 
-export default function Home() {
+const DynamicPicture = dynamic(() => import('../components/picture'))
+
+const Home: React.FC = () => {
   return (
     <div className="container">
       <Head>
@@ -9,17 +12,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <picture>
-          <source
-            srcSet={require('@public/images/logo.png?webp')}
-            type="image/webp"
-          />
-          <source
-            srcSet={require('@public/images/logo.png')}
-            type="image/png"
-          />
-          <img src={require('@public/images/logo.png')} alt="Logo" />
-        </picture>
+        <DynamicPicture
+          webpPath={require('@public/images/big_logo.png?webp')}
+          imagePath={require('@public/images/big_logo.png')}
+          imageAlt="Logo"
+        />
 
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -219,3 +216,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
