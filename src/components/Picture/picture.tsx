@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-interface Props {
+export interface Props {
   webpPath: string
   imagePath: string
   imageAlt: string
 }
 
-const Picture: React.FC<Props> = (props) => {
+const Picture: FC<Props> = (props) => {
   const { webpPath, imagePath, imageAlt } = props
 
   return (

@@ -5,8 +5,9 @@ const optimizedImages = require('next-optimized-images')
 
 const nextConfig = {
   webpack: (config) => {
-    const publicAlias = '@public'
-    config.resolve.alias[publicAlias] = resolve(__dirname, 'public')
+    const PUBLIC = 'public'
+    const publicAlias = `@${PUBLIC}`
+    config.resolve.alias[publicAlias] = resolve(__dirname, PUBLIC)
 
     return config
   },

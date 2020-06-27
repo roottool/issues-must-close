@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import React, { FC } from 'react'
 
-const DynamicPicture = dynamic(() => import('../components/picture'))
+const DynamicPicture = dynamic(() => import('../components/Picture/picture'))
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   return (
     <div className="container">
       <Head>

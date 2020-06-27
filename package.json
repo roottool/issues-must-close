@@ -5,10 +5,13 @@
   "repository": "https://github.com/roottool/issues-must-close.git",
   "author": "roottool",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
@@ -18,10 +21,18 @@
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/cli": "^5.3.19",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.19",
     "@types/node": "^14.0.11",
     "@types/react": "^16.9.35",
     "@typescript-eslint/eslint-plugin": "^3.4.0",
     "@typescript-eslint/parser": "^3.1.0",
+    "babel-loader": "^8.1.0",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -32,9 +43,10 @@
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.1",
     "prettier": "^2.0.5",
-    "storybook": "^5.3.19",
+    "react-docgen-typescript-loader": "^3.7.2",
     "storybook-addon-designs": "^5.3.0",
     "textlint": "^11.6.3",
+    "ts-loader": "^7.0.5",
     "typescript": "^3.9.5",
     "webp-loader": "^0.6.0"
   }
