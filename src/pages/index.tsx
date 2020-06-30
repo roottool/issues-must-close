@@ -1,10 +1,18 @@
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
+import Select from 'react-select'
+
+import CONSTANTS from '../constants'
 
 const DynamicPicture = dynamic(() => import('../components/Picture/picture'))
 
 const Home: FC = () => {
+  const [selectedLanguages, setLangages] = useState<string[]>([])
+  const handleChange = (value) => {
+    setLangages(value)
+  }
+
   return (
     <div className="container">
       <Head>
@@ -14,9 +22,17 @@ const Home: FC = () => {
 
       <main>
         <DynamicPicture
-          webpPath={require('@public/images/big_logo.png?webp')}
+          webpPath={require('@public/images/big_logo.webp')}
           imagePath={require('@public/images/big_logo.png')}
-          imageAlt="Logo"
+          imageAlt="logo"
+        />
+
+        <Select
+          value={selectedLanguages}
+          onChange={handleChange}
+          options={CONSTANTS.SEARCH_FILTER.LANGUAGES}
+          placeholder="Languages"
+          isMulti={true}
         />
 
         <h1 className="title">
@@ -68,7 +84,7 @@ const Home: FC = () => {
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
-
+      {/* 
       <style jsx>{`
         .container {
           min-height: 100vh;
@@ -198,7 +214,7 @@ const Home: FC = () => {
             flex-direction: column;
           }
         }
-      `}</style>
+      `}</style> */}
 
       <style jsx global>{`
         html,
