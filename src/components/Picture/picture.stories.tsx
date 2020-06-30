@@ -7,6 +7,14 @@ export default {
   title: 'Picture Component',
 }
 
-export const Default: FC<Props> = () => (
-  <Picture webpPath="" imagePath="/images/big_logo.png" imageAlt="Sample" />
+export const Webp: FC<Props> = () => (
+  <Picture
+    webpPath="/images/big_logo.webp"
+    imagePath="/images/big_logo.png"
+    imageAlt="Webp sample"
+  />
+)
+
+export const PNG: FC<Props> = () => (
+  <Picture webpPath="" imagePath="/images/big_logo.png" imageAlt="PNG sample" />
 )
