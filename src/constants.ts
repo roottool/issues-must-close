@@ -65,6 +65,7 @@ const CONSTANTS = {
     LANGUAGES,
     LABELS,
   },
+  SITE_TITLE: 'Issues Must Close!',
 }
 
 export default CONSTANTS
