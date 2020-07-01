@@ -9,8 +9,12 @@ const DynamicPicture = dynamic(() => import('../components/Picture/picture'))
 
 const Home: FC = () => {
   const [selectedLanguages, setLangages] = useState<string[]>([])
-  const handleChange = (value) => {
+  const handleLangSelectionChange = (value) => {
     setLangages(value)
+  }
+  const [selectedLabels, setLabels] = useState<string[]>([])
+  const handlLabelSelectionChange = (value) => {
+    setLabels(value)
   }
 
   return (
@@ -27,21 +31,30 @@ const Home: FC = () => {
           imageAlt="logo"
         />
 
-        <Select
-          value={selectedLanguages}
-          onChange={handleChange}
-          options={CONSTANTS.SEARCH_FILTER.LANGUAGES}
-          placeholder="Languages"
-          isMulti={true}
-        />
-
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
+        <div>
+          <div>
+            <label htmlFor="languages">Languages</label>
+            <Select
+              value={selectedLanguages}
+              onChange={handleLangSelectionChange}
+              options={CONSTANTS.SEARCH_FILTER.LANGUAGES}
+              id="languages"
+              placeholder="Languages"
+              isMulti={true}
+            />
+          </div>
+          <div>
+            <label htmlFor="labels">Labels</label>
+            <Select
+              value={selectedLabels}
+              onChange={handlLabelSelectionChange}
+              options={CONSTANTS.SEARCH_FILTER.LABELS}
+              id="labels"
+              placeholder="Labels"
+              isMulti={true}
+            />
+          </div>
+        </div>
 
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
@@ -133,22 +146,6 @@ const Home: FC = () => {
           text-decoration: underline;
         }
 
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
         code {
           background: #fafafa;
           border-radius: 5px;
@@ -196,10 +193,6 @@ const Home: FC = () => {
           margin: 0;
           font-size: 1.25rem;
           line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
         }
 
         @media (max-width: 600px) {
