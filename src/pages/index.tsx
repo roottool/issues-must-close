@@ -1,10 +1,8 @@
 import React, { FC, useState } from 'react'
-import dynamic from 'next/dynamic'
 import Select from 'react-select'
 
+import Picture from '../components/Picture/picture'
 import CONSTANTS from '../constants'
-
-const DynamicPicture = dynamic(() => import('../components/Picture/picture'))
 
 const Home: FC = () => {
   const { LANGUAGES, LABELS } = CONSTANTS.SEARCH_FILTER
@@ -21,9 +19,9 @@ const Home: FC = () => {
   return (
     <div className="container">
       <main>
-        <DynamicPicture
-          webpPath={require('@public/images/big_logo.webp')}
-          imagePath={require('@public/images/big_logo.png')}
+        <Picture
+          webpPath={require('../../public/images/big_logo.webp')}
+          imagePath={require('../../public/images/big_logo.png')}
           imageAlt="logo"
         />
 
