@@ -28,7 +28,22 @@ const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <title>{SITE_TITLE}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta property="og:title" content={SITE_TITLE} />
+        <meta property="og:type" content="website" />
+        {/* TODO: Create the url */}
+        <meta property="og:url" content="" />
+        {/* TODO: Create the description */}
+        <meta name="description" content="" />
+        {/* TODO: Create the keywords */}
+        <meta name="keywords" content="" />
+        <meta property="og:image" content={require('../../public/images/logo.png')} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={SITE_TITLE} />
+        <meta name="twitter:description" content="Description of this content." />
+        <meta name="twitter:image" content={require('../../public/images/logo.png')} />
+        <meta name="twitter:image:alt" content="logo" />
       </Head>
       <Global styles={globalStyle} />
       <Component {...pageProps} />
