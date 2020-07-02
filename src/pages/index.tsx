@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic'
 import React, { FC, useState } from 'react'
+import dynamic from 'next/dynamic'
 import Select from 'react-select'
 
 import CONSTANTS from '../constants'

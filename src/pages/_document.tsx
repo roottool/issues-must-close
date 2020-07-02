@@ -27,4 +27,3 @@ class NextDocument extends Document {
 }
 
 export default NextDocument
-
