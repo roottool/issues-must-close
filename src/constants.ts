@@ -32,8 +32,8 @@ const LANGUAGES = [
   'TypeScript',
   'Visual Basic',
 ].map((value) => {
-  return { value, label: value }
-})
+  return { value, label: value };
+});
 
 const LABELS = [
   'bug',
@@ -57,8 +57,8 @@ const LABELS = [
   'priority: high',
   'type: bug',
 ].map((value) => {
-  return { value, label: value }
-})
+  return { value, label: value };
+});
 
 const CONSTANTS = {
   SEARCH_FILTER: {
@@ -66,6 +66,6 @@ const CONSTANTS = {
     LABELS,
   },
   SITE_TITLE: 'Issues Must Close!',
-}
+};
 
-export default CONSTANTS
+export default CONSTANTS;

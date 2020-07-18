@@ -1,20 +1,20 @@
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 
 export interface Props {
-  webpPath: string
-  imagePath: string
-  imageAlt: string
+  webpPath: string;
+  imagePath: string;
+  imageAlt: string;
 }
 
 const Picture: FC<Props> = (props) => {
-  const { webpPath, imagePath, imageAlt } = props
+  const { webpPath, imagePath, imageAlt } = props;
 
   return (
     <picture>
       <source srcSet={webpPath} type="image/webp" />
       <img src={imagePath} alt={`${imageAlt}`} />
     </picture>
-  )
-}
+  );
+};
 
-export default Picture
+export default Picture;

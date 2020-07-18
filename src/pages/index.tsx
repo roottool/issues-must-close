@@ -1,20 +1,20 @@
-import React, { FC, useState } from 'react'
-import Select from 'react-select'
+import React, { FC, useState } from 'react';
+import Select from 'react-select';
 
-import Picture from '../components/Picture/picture'
-import CONSTANTS from '../constants'
+import Picture from '../components/Picture/picture';
+import CONSTANTS from '../constants';
 
 const Home: FC = () => {
-  const { LANGUAGES, LABELS } = CONSTANTS.SEARCH_FILTER
+  const { LANGUAGES, LABELS } = CONSTANTS.SEARCH_FILTER;
 
-  const [selectedLanguages, setLangages] = useState<string[]>([])
+  const [selectedLanguages, setLangages] = useState<string[]>([]);
   const handleLangSelectionChange = (value) => {
-    setLangages(value)
-  }
-  const [selectedLabels, setLabels] = useState<string[]>([])
+    setLangages(value);
+  };
+  const [selectedLabels, setLabels] = useState<string[]>([]);
   const handlLabelSelectionChange = (value) => {
-    setLabels(value)
-  }
+    setLabels(value);
+  };
 
   return (
     <div className="container">
@@ -56,15 +56,7 @@ const Home: FC = () => {
         </div>
       </main>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
+      <footer></footer>
       {/*
       <style jsx>{`
         .container {
@@ -129,7 +121,7 @@ const Home: FC = () => {
         }
       `}</style> */}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

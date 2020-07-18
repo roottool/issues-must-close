@@ -1,4 +1,4 @@
-const Path = require('path')
+const Path = require('path');
 
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
@@ -6,6 +6,20 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-links',
     'storybook-addon-designs',
+    '@storybook/addon-knobs',
+    {
+      name: '@storybook/addon-storysource',
+      options: {
+        rule: {
+          test: [/\.stories\.tsx?$/],
+          include: [Path.resolve(__dirname, '../src')],
+        },
+        loaderOptions: {
+          parser: 'typescript',
+          prettierConfig: { printWidth: 100 },
+        },
+      },
+    },
     {
       name: '@storybook/preset-typescript',
       options: {
@@ -18,11 +32,11 @@ module.exports = {
     },
   ],
   webpackFinal: async (config) => {
-    const PUBLIC = 'public'
-    const publicAlias = `@${PUBLIC}`
-    config.resolve.alias[publicAlias] = Path.resolve(__dirname, `../${PUBLIC}`)
-    config.resolve.extensions.push('.ts', '.tsx', '.png')
+    const PUBLIC = 'public';
+    const publicAlias = `@${PUBLIC}`;
+    config.resolve.alias[publicAlias] = Path.resolve(__dirname, `../${PUBLIC}`);
+    config.resolve.extensions.push('.ts', '.tsx', '.png');
 
-    return config
+    return config;
   },
-}
+};
