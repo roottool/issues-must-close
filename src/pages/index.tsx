@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import Select from 'react-select';
 
+import PageDefinition from '../components/PageDefinition';
 import Picture from '../components/Picture/picture';
 import CONSTANTS from '../constants';
 
@@ -17,110 +18,39 @@ const Home: FC = () => {
   };
 
   return (
-    <div className="container">
-      <main>
-        <Picture
-          webpPath={require('../../public/images/big_logo.webp')}
-          imagePath={require('../../public/images/big_logo.png')}
-          imageAlt="logo"
-        />
+    <PageDefinition>
+      <Picture imageName={'big_logo.png'} imageAlt="logo" />
 
+      <div>
         <div>
-          <div>
-            <label htmlFor="languages">Languages</label>
-            <Select
-              value={selectedLanguages}
-              onChange={handleLangSelectionChange}
-              options={LANGUAGES}
-              id="languages"
-              placeholder="Languages"
-              isMulti={true}
-            />
-          </div>
-          <div>
-            <label htmlFor="labels">Labels</label>
-            <Select
-              value={selectedLabels}
-              onChange={handlLabelSelectionChange}
-              options={LABELS}
-              id="labels"
-              placeholder="Labels"
-              isMulti={true}
-            />
-          </div>
+          <label htmlFor="languages">Languages</label>
+          <Select
+            value={selectedLanguages}
+            onChange={handleLangSelectionChange}
+            options={LANGUAGES}
+            id="languages"
+            placeholder="Languages"
+            isMulti={true}
+          />
         </div>
-
         <div>
-          <button>test</button>
-          <button>test2</button>
+          <label htmlFor="labels">Labels</label>
+          <Select
+            value={selectedLabels}
+            onChange={handlLabelSelectionChange}
+            options={LABELS}
+            id="labels"
+            placeholder="Labels"
+            isMulti={true}
+          />
         </div>
-      </main>
+      </div>
 
-      <footer></footer>
-      {/*
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style> */}
-      {/* 
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-            Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style> */}
-    </div>
+      <div>
+        <button>test</button>
+        <button>test2</button>
+      </div>
+    </PageDefinition>
   );
 };
 
