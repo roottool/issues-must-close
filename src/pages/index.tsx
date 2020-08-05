@@ -3,24 +3,29 @@ import Select from 'react-select';
 
 import PageDefinition from '../components/PageDefinition';
 import Picture from '../components/Picture/picture';
-import CONSTANTS from '../constants';
+import { CONSTANTS } from '../utils/constants';
 
 const Home: FC = () => {
   const { LANGUAGES, LABELS } = CONSTANTS.SEARCH_FILTER;
 
   const [selectedLanguages, setLangages] = useState<string[]>([]);
-  const handleLangSelectionChange = (value) => {
+  const handleLangSelectionChange = (value: string[]) => {
     setLangages(value);
   };
   const [selectedLabels, setLabels] = useState<string[]>([]);
-  const handlLabelSelectionChange = (value) => {
+  const handlLabelSelectionChange = (value: string[]) => {
     setLabels(value);
   };
 
   return (
-    <PageDefinition>
-      <Picture imageName={'big_logo.png'} imageAlt="logo" />
-
+    <div>
+      <div>
+        <Picture
+          webpPath={require('../../public/images/big_logo.webp')}
+          imagePath={require('../../public/images/big_logo.png')}
+          imageAlt="logo"
+        />
+      </div>
       <div>
         <div>
           <label htmlFor="languages">Languages</label>
@@ -50,7 +55,7 @@ const Home: FC = () => {
         <button>test</button>
         <button>test2</button>
       </div>
-    </PageDefinition>
+    </div>
   );
 };
 
