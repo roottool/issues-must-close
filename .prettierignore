@@ -1,6 +1,7 @@
+.linaria-cache
 .next/
 node_module/
+public/
 package.json
 package-lock.json
 yarn.lock
-public
