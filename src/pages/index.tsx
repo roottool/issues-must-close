@@ -32,7 +32,7 @@ const Home: FC = () => {
             value={selectedLanguages}
             onChange={handleLangSelectionChange}
             options={LANGUAGES}
-            id="languages"
+            instanceId="languages"
             placeholder="Languages"
             isMulti={true}
           />
@@ -43,7 +43,7 @@ const Home: FC = () => {
             value={selectedLabels}
             onChange={handlLabelSelectionChange}
             options={LABELS}
-            id="labels"
+            instanceId="labels"
             placeholder="Labels"
             isMulti={true}
           />
