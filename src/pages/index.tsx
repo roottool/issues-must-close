@@ -1,9 +1,8 @@
 import React, { FC, useState } from 'react';
 import Select from 'react-select';
-
-import PageDefinition from '../components/PageDefinition';
-import Picture from '../components/Picture/picture';
-import { CONSTANTS } from '../utils/constants';
+import { css } from 'linaria';
+import Picture from '@src/components/Picture/picture';
+import { CONSTANTS } from '@src/utils/constants';
 
 const Home: FC = () => {
   const { LANGUAGES, LABELS } = CONSTANTS.SEARCH_FILTER;
@@ -21,8 +20,8 @@ const Home: FC = () => {
     <div>
       <div>
         <Picture
-          webpPath={require('../../public/images/big_logo.webp')}
-          imagePath={require('../../public/images/big_logo.png')}
+          webpPath={require('@public/images/big_logo.webp')}
+          imagePath={require('@public/images/big_logo.png')}
           imageAlt="logo"
         />
       </div>

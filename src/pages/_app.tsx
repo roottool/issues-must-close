@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { css } from 'linaria';
-import { CONSTANTS } from '../utils/constants';
-import { CONSTANTS as STYLE_CONSTANTS } from '../styles/constants';
+import { CONSTANTS } from '@src/utils/constants';
+import { CONSTANTS as STYLE_CONSTANTS } from '@src/styles/constants';
 
 const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { SITE_TITLE } = CONSTANTS;
@@ -28,7 +28,7 @@ const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="keywords" content="" />
         <meta
           property="og:image"
-          content={require('../../public/images/logo.png')}
+          content={require('@public/images/logo.png')}
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={SITE_TITLE} />
@@ -38,7 +38,7 @@ const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
         />
         <meta
           name="twitter:image"
-          content={require('../../public/images/logo.png')}
+          content={require('@public/images/logo.png')}
         />
         <meta name="twitter:image:alt" content="logo" />
       </Head>
