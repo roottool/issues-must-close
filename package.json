@@ -24,8 +24,11 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "check-types": "tsc --noEmit",
+    "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "npm-run-all eslint check-types",
+    "lint:fix": "npm-run-all eslint:fix check-types format",
     "test": "echo \"Write tests!\" && exit 1",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook"
@@ -58,16 +61,27 @@
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "husky": ">=4",
+    "lint-staged": ">=10",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
     "responsive-loader": "^2.0.0",
     "storybook-addon-designs": "^5.4.1",
     "textlint": "^11.7.6",
     "typescript": "^3.9.7",
     "webp-loader": "^0.6.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(js,jsx,ts,tsx)": "eslint --cache --fix",
+    "*.(ts,tsx)": "tsc --noEmit"
   }
 }
