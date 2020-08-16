@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
+      "*": ["./node_modules/*"],
       "@public/*": ["./public/*"],
       "@src/*": ["./src/*"]
     }
