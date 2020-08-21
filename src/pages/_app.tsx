@@ -24,8 +24,6 @@ const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
         <meta property="og:url" content="" />
         {/* TODO: Create the description */}
         <meta name="description" content="" />
-        {/* TODO: Create the keywords */}
-        <meta name="keywords" content="" />
         <meta
           property="og:image"
           content={require('@public/images/logo.png')}
