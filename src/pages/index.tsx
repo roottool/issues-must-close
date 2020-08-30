@@ -4,7 +4,8 @@ import { MultiSelectArea, Picture } from '@src/components';
 import { CONSTANTS } from '@src/utils/constants';
 
 const Home: FC = () => {
-  const { LANGUAGES, LABELS } = CONSTANTS.SEARCH_FILTER;
+  const { LOGO_ALT, SEARCH_FILTER } = CONSTANTS;
+  const { LANGUAGES, LABELS } = SEARCH_FILTER;
 
   const [selectedLanguages, setLangages] = useState<string[]>([]);
   const handleLangSelectionChange = (value: string[]) => {
@@ -21,7 +22,7 @@ const Home: FC = () => {
         <Picture
           webpPath={require('@public/images/big_logo.webp')}
           imagePath={require('@public/images/big_logo.png')}
-          imageAlt="The logo of Issues Must Close!"
+          imageAlt={LOGO_ALT}
         />
       </div>
       <div>

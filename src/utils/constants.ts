@@ -61,11 +61,13 @@ const LABELS = [
 });
 
 const CONSTANTS = {
+  DESCRIPTION: 'We can find issues of open source projects.',
+  LOGO_ALT: 'The logo of Issues Must Close!',
   SEARCH_FILTER: {
     LANGUAGES,
     LABELS,
   },
   SITE_TITLE: 'Issues Must Close!',
-};
+} as const;
 
 export { CONSTANTS };

@@ -6,7 +6,7 @@ import { CONSTANTS } from '@src/utils/constants';
 import { CONSTANTS as STYLE_CONSTANTS } from '@src/styles/constants';
 
 const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
-  const { SITE_TITLE } = CONSTANTS;
+  const { DESCRIPTION, LOGO_ALT, SITE_TITLE } = CONSTANTS;
 
   return (
     <>
@@ -22,23 +22,19 @@ const NextApp: FC<AppProps> = ({ Component, pageProps }) => {
         <meta property="og:type" content="website" />
         {/* TODO: Create the url */}
         <meta property="og:url" content="" />
-        {/* TODO: Create the description */}
-        <meta name="description" content="" />
+        <meta name="description" content={DESCRIPTION} />
         <meta
           property="og:image"
           content={require('@public/images/logo.png')}
         />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={SITE_TITLE} />
-        <meta
-          name="twitter:description"
-          content="Description of this content."
-        />
+        <meta name="twitter:description" content={DESCRIPTION} />
         <meta
           name="twitter:image"
           content={require('@public/images/logo.png')}
         />
-        <meta name="twitter:image:alt" content="logo" />
+        <meta name="twitter:image:alt" content={LOGO_ALT} />
       </Head>
       <Component {...pageProps} />
     </>
