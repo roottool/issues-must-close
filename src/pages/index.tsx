@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
-import Select from 'react-select';
 import { css } from 'linaria';
-import Picture from '@src/components/Picture/picture';
+import { MultiSelectArea, Picture } from '@src/components';
 import { CONSTANTS } from '@src/utils/constants';
 
 const Home: FC = () => {
@@ -22,32 +21,24 @@ const Home: FC = () => {
         <Picture
           webpPath={require('@public/images/big_logo.webp')}
           imagePath={require('@public/images/big_logo.png')}
-          imageAlt="logo"
+          imageAlt="The logo of Issues Must Close!"
         />
       </div>
       <div>
-        <div>
-          <label htmlFor="languages">Languages</label>
-          <Select
-            value={selectedLanguages}
-            onChange={handleLangSelectionChange}
-            options={LANGUAGES}
-            instanceId="languages"
-            placeholder="Languages"
-            isMulti={true}
-          />
-        </div>
-        <div>
-          <label htmlFor="labels">Labels</label>
-          <Select
-            value={selectedLabels}
-            onChange={handlLabelSelectionChange}
-            options={LABELS}
-            instanceId="labels"
-            placeholder="Labels"
-            isMulti={true}
-          />
-        </div>
+        <MultiSelectArea
+          value={selectedLanguages}
+          onChange={handleLangSelectionChange}
+          options={LANGUAGES}
+          instanceId="languages"
+          placeholder="Languages"
+        />
+        <MultiSelectArea
+          value={selectedLabels}
+          onChange={handlLabelSelectionChange}
+          options={LABELS}
+          instanceId="labels"
+          placeholder="Labels"
+        />
       </div>
 
       <div>
