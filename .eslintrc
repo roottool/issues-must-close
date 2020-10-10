@@ -11,7 +11,14 @@
     "prettier/@typescript-eslint",
     "prettier/react"
   ],
-  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "typescript-sort-keys",
+    "sort-keys-fix",
+    "sort-destructure-keys"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
@@ -32,9 +39,20 @@
   },
   "rules": {
     "jsx-a11y/anchor-is-valid": "off",
+    "react/jsx-sort-props": ["WARN", {
+      "callbacksLast": false,
+      "shorthandFirst": true,
+      "ignoreCase": true,
+      "noSortAlphabetically": false,
+      "reservedFirst": true
+    }],
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
+    "sort-keys-fix/sort-keys-fix": "WARN",
+    "sort-destructure-keys/sort-destructure-keys": "WARN",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "typescript-sort-keys/interface": "WARN",
+    "typescript-sort-keys/string-enum": "WARN"
   }
 }
