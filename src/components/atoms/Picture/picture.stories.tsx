@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-
-import Picture, { Props } from './picture';
+import { FC } from 'react';
+import Picture, { Props } from './';
 
 export default {
   component: Picture,

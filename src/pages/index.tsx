@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { css } from 'linaria';
 import { MultiSelectArea, Picture } from '@src/components';
 import { CONSTANTS } from '@src/utils/constants';

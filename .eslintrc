@@ -47,6 +47,7 @@
       "reservedFirst": true
     }],
     "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "sort-keys-fix/sort-keys-fix": "WARN",
     "sort-destructure-keys/sort-destructure-keys": "WARN",
