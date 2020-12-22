@@ -7,7 +7,7 @@ We can find issues of open source projects.
 ### Local
 
 ```bash
-git clone https://github.com/"your-github-account"/Issues-Must-Close.git
+git clone https://github.com/"your-github-account"/issues-must-close.git
 yarn install
 ```
 
