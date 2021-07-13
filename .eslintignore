@@ -1,7 +1,9 @@
-.linaria-cache
+# Build
+.linaria-cache/
 .next/
+storybook-static/
+
 node_module/
 public/
-package.json
-package-lock.json
-yarn.lock
+
+*.d.ts

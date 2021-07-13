@@ -1,28 +1,57 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const withCSS = require('@zeit/next-css');
-const withPlugins = require('next-compose-plugins');
-const optimizedImages = require('next-optimized-images');
-const Path = require('path');
+const { join } = require('path')
+const withCSS = require('@zeit/next-css')
+const ForkTsCheckerWebpackPlugin = require(
+  'fork-ts-checker-webpack-plugin'
+)
 
-const withCssSettings = withCSS({
-  webpack(config) {
-    config.resolve.alias['@public'] = Path.join(__dirname, 'public');
-    config.resolve.alias['@src'] = Path.join(__dirname, 'src');
+const DEV_TSCONFIG = 'tsconfig.json'
+const PROD_TSCONFIG = 'tsconfig.prod.json'
 
-    config.module.rules.push({
-      test: /\.tsx?$/,
-      use: [
-        {
-          loader: 'linaria/loader',
-          options: {
-            sourceMap: process.env.NODE_ENV !== 'production',
+module.exports = withCSS({
+  webpack: (config, { dev }) => {
+    const configFile = dev ? DEV_TSCONFIG : PROD_TSCONFIG
+    config.module.rules = [
+      ...config.module.rules,
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|eot|ttf)$/i,
+        loader: "file-loader",
+      },
+      {
+        test: /\.tsx$/,
+        exclude: [/node_modules/],
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile,
+              transpileOnly: true,
+            },
           },
-        },
-      ],
-    });
+          { loader: 'babel-loader' },
+          {
+            loader: '@linaria/webpack-loader',
+            options: {
+              sourceMap: dev,
+            },
+          },
+        ],
+      },
+    ]
 
-    return config;
-  },
-});
+    config.resolve.alias['~'] = join(__dirname, 'public')
+    config.resolve.alias['@'] = join(__dirname, 'src')
 
-module.exports = withPlugins([[optimizedImages, {}]], withCssSettings);
+    config.plugins = [
+      ...config.plugins,
+      new ForkTsCheckerWebpackPlugin({
+        eslint: {
+          // required - same as command
+          // `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
+          files: './src/**/*.{ts,tsx,js,jsx}'
+        }
+      }),
+    ]
+
+    return config
+  }
+})
