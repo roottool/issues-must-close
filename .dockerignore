@@ -4,8 +4,3 @@
 storybook-static/
 
 node_module/
-public/
-
-*.d.ts
-
-package.json

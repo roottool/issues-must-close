@@ -1,25 +1,37 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "lib": ["dom", "dom.iterable", "es2020"],
+    "target": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "ESNext"
+    ],
     "baseUrl": ".",
     "allowJs": false,
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
     "jsx": "preserve",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "ESNext",
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "paths": {
-      "*": ["./node_modules/*"],
-      "@public/*": ["./public/*"],
-      "@src/*": ["./src/*"]
+      "*": [
+        "./node_modules/*"
+      ],
+      "~/*": [
+        "./public/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ]
     }
-  },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": [".linaria-cache", ".next", "public", "next.config.js"]
+  }
 }
